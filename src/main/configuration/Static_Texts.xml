@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Enviroment>
+    <EnviromentType>PC</EnviromentType>
+    <ApplicationType>Mobile</ApplicationType>
+
+    <!-- Texts -->
+    <TouchIDProcess>
+        <TouchIDIntroHeader>כניסה בטביעת אצבע</TouchIDIntroHeader>
+        <TouchIDIntroSubHeaderFirstRow>טביעת אצבע,</TouchIDIntroSubHeaderFirstRow>
+        <TouchIDIntroSubHeaderSecondRow>הסיסמה הכי אישית שלך</TouchIDIntroSubHeaderSecondRow>
+        <TouchIDIntroDescriptionFirstRow>נכנסים לחשבון באמצעות טביעת האצבע,</TouchIDIntroDescriptionFirstRow>
+        <TouchIDIntroDescriptionSecondRow>מבלי להקליד קוד משתמש וסיסמה.</TouchIDIntroDescriptionSecondRow>
+        <TouchIDIntroAttention>לתשומת ליבך</TouchIDIntroAttention>
+        <TouchIDIntroFirstBullet>כדי להגן על המידע שלך אנחנו ממליצים להירשם רק במכשיר אישי שנמצא ברשותך ושיש בו את טביעת האצבע שלך בלבד</TouchIDIntroFirstBullet>
+        <TouchIDIntroSecondBullet>בביצוע פעולות מסוימות, כמו העברת כספים, תתבקש להזדהות גם באמצעות קוד זיהוי חד פעמי שיישלח אליך ב-SMS</TouchIDIntroSecondBullet>
+        <TouchIDIntroThirdBullet>השירות מתבסס על טביעת האצבע המוגדרת במכשיר. הבנק אינו שומר את טביעת האצבע.</TouchIDIntroThirdBullet>
+    </TouchIDProcess>
+</Enviroment>
