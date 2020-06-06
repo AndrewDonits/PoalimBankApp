@@ -22,7 +22,7 @@ public class Verify extends CommonOps {
                     LogStatus.PASS,
                     "The following text: "
                             + value
-                            + ", found successfully in the following element: "
+                            + ", was found successfully in the following element: "
                             + Variables.getName(className, name)
             );
         } catch (Exception e) {

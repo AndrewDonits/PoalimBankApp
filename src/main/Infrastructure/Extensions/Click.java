@@ -23,7 +23,7 @@ public class Click extends CommonOps {
                                 + Variables.getName(className, name),
                         test.addScreenCapture(SSReport(driver, name)));
         } catch (Exception e) {
-            if (fail == true) {
+            if (fail) {
                 test.log(LogStatus.FAIL,
                         "Couldn't manage to click on element: "
                                 + Variables.getName(className, name),

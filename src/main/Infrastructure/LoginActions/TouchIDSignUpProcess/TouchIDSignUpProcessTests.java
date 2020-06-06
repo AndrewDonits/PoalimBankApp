@@ -1,6 +1,7 @@
 package LoginActions.TouchIDSignUpProcess;
 
 import Utilities.CommonOps;
+import com.sun.xml.bind.v2.TODO;
 import org.testng.annotations.Test;
 import org.xml.sax.SAXException;
 
@@ -15,8 +16,14 @@ public class TouchIDSignUpProcessTests extends CommonOps {
     public TouchIDSignUpProcessTests() { super();}
 
     @Test
+    public void enterTouchIDSignUpProcess(boolean preLogin) throws IOException {
+        if (preLogin)
+            click.on(login.loginWithFingerPrintBtn, "login", "loginWithFingerPrintBtn", true);
+
+        //TODO Need to add sign up with finger print button after login here
+    }
+    @Test
     public void verifyIntroPageHeader() throws IOException, ParserConfigurationException, SAXException {
-        click.on(login.loginWithFingerPrintBtn, "login", "loginWithFingerPrintBtn", true);
         verify.textInElement(
                 setupTouchIDIndication.setupTouchIDIntroHeader,
                 getData("TouchIDIntroHeader"),
@@ -96,11 +103,21 @@ public class TouchIDSignUpProcessTests extends CommonOps {
     }
 
     @Test
-    public void clickOnProceedBtn() throws IOException, SAXException, ParserConfigurationException {
+    public void clickOnProceedBtn() throws IOException {
         click.on(
                 setupTouchIDIndication.setupTouchIDIntroProceedBtn,
                 "setupTouchIDIndication",
                 "setupTouchIDIntroProceedBtn",
+                true
+        );
+    }
+
+    @Test
+    public void clickOnCloseBtn() throws IOException {
+        click.on(
+                setupTouchIDIndication.setupTouchIDIntroCloseBtn,
+                "setupTouchIDIndication",
+                "setupTouchIDIntroCloseBtn",
                 true
         );
     }

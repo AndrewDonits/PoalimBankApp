@@ -17,14 +17,9 @@ public class LoginTests extends CommonOps {
     }
 
     @Test
-    public void getToLoginPage() throws IOException {
-        introPagesSharedMethods.nextTimeButton(false);
-    }
-
-    @Test
-    public void insertCredentials() {
-        update.sendKeys(props.getProperty("UserProd"), login.usernameField, "login", "usernameField");
-        update.sendKeys(props.getProperty("PasswordProd"), login.passwordField, "login", "passwordField");
+    public void insertCredentials(String username, String password) {
+        update.sendKeys(username, login.usernameField, "login", "usernameField");
+        update.sendKeys(password, login.passwordField, "login", "passwordField");
     }
 
     @Test

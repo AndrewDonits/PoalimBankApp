@@ -15,22 +15,23 @@ public class Sanity extends CommonOps {
     @Test
     @Description("This test verifies simple login")
     public void Test01_SimpleLogin() throws IOException {
-        loginTests.getToLoginPage();
-        loginTests.insertCredentials();
+        introductionPagesTests.skipIntroPages();
+        loginTests.insertCredentials(props.getProperty("UserProd"), props.getProperty("PasswordProd"));
         loginTests.clickOnLogin();
         loginTests.acceptLegalTerms();
         loginTests.verifyHomePageData();
     }
 
     @Test
-    @Description("This test verifies TouchId login, it's pre-condition is touchID sign up process")
-    public void Test02_SignUpToTouchID() throws IOException, ParserConfigurationException, SAXException {
-        loginTests.getToLoginPage();
+    @Description("This test is for sign up for TouchID process, before login")
+    public void Test02_SignUpToTouchIDBeforeLogin() throws IOException, ParserConfigurationException, SAXException {
+        introductionPagesTests.skipIntroPages();
+        touchIDSignUpProcessTests.enterTouchIDSignUpProcess(true);
         touchIDSignUpProcessTests.verifyIntroPageHeader();
         touchIDSignUpProcessTests.verifyIntroPageSubHeader();
         touchIDSignUpProcessTests.verifyIntroPageDescription();
         touchIDSignUpProcessTests.verifyIntroPageAttentionSectionTitle();
         touchIDSignUpProcessTests.verifyIntroPageAttentionSectionBullets();
-        touchIDSignUpProcessTests.clickOnProceedBtn();
+        touchIDSignUpProcessTests.clickOnCloseBtn();
     }
 }

@@ -4,6 +4,7 @@ import Extensions.Click;
 import Extensions.Update;
 import Extensions.Verify;
 import LoginActions.Login.LoginTests;
+import LoginActions.PreLoginIntroductionPages.IntroductionPagesTests;
 import PageObjects.*;
 import SharedMethods.HomePageCommonMethods;
 import SharedMethods.IntroPagesSharedMethods;
@@ -28,21 +29,23 @@ public class BankUi {
     public static IntroPagesSharedMethods introPagesSharedMethods;
     public static TouchIDSignUpProcessTests touchIDSignUpProcessTests;
     public static TouchIDSignUpProcessSharedMethods touchIDSignUpProcessSharedMethods;
+    public static IntroductionPagesTests introductionPagesTests;
 
     BankUi(WebDriver driver) {
-        this.login = new LoginPageObjects(driver);
-        this.postLogin = new PostLoginPageObjects(driver);
-        this.homePage = new HomePageObjects(driver);
-        this.update = new Update();
-        this.click = new Click();
-        this.verify = new Verify();
-        this.homePageCommonMethods = new HomePageCommonMethods();
-        this.loginSharedMethods = new LoginSharedMethods();
-        this.setupTouchIDIndication = new SetupTouchIDIndicationPageObjects(driver);
-        this.introPagesSharedMethods = new IntroPagesSharedMethods();
-        this.introPages = new IntroPagesPageObjects(driver);
-        this.loginTests = new LoginTests();
-        this.touchIDSignUpProcessTests = new TouchIDSignUpProcessTests();
-        this.touchIDSignUpProcessSharedMethods = new TouchIDSignUpProcessSharedMethods();
+        login = new LoginPageObjects(driver);
+        postLogin = new PostLoginPageObjects(driver);
+        homePage = new HomePageObjects(driver);
+        update = new Update();
+        click = new Click();
+        verify = new Verify();
+        homePageCommonMethods = new HomePageCommonMethods();
+        loginSharedMethods = new LoginSharedMethods();
+        setupTouchIDIndication = new SetupTouchIDIndicationPageObjects(driver);
+        introPagesSharedMethods = new IntroPagesSharedMethods();
+        introPages = new IntroPagesPageObjects(driver);
+        loginTests = new LoginTests();
+        touchIDSignUpProcessTests = new TouchIDSignUpProcessTests();
+        touchIDSignUpProcessSharedMethods = new TouchIDSignUpProcessSharedMethods();
+        introductionPagesTests = new IntroductionPagesTests();
     }
 }

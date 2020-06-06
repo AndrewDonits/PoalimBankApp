@@ -4,6 +4,7 @@ import Utilities.ManagePages;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
+import org.springframework.beans.factory.annotation.Value;
 
 public class SetupTouchIDIndicationPageObjects extends ManagePages {
 
@@ -37,5 +38,35 @@ public class SetupTouchIDIndicationPageObjects extends ManagePages {
 
     @AndroidFindBy(id = "fp_intro_header_close_button")
     public AndroidElement setupTouchIDIntroCloseBtn;
+
+    @AndroidFindBy(id = "title_wizard_toolbar")
+    public AndroidElement redHeaderTitle;
+
+    @AndroidFindBy(id = "toolbar_wizard_close")
+    public AndroidElement redHeaderCloseBtn;
+
+    @AndroidFindBy(id = "wizards_step_progress")
+    public AndroidElement redHeaderStepProgressBar;
+
+    @AndroidFindBy(id = "upperGreyHeaderTitle")
+    public AndroidElement upperGreyHeaderTitle;
+
+    @Value(value = "usernameField")
+    @AndroidFindBy(id = "base_edit_text")
+    public AndroidElement usernameField;
+
+    @Value(value = "passwordField")
+    @AndroidFindBy(id = "base_edit_text")
+    public AndroidElement passwordField;
+
+    @AndroidFindBy(id = "finger_login_view_forgot_user_name")
+    public AndroidElement forgotUsernameBtn;
+
+    @AndroidFindBy(id = "finger_login_view_forgot_password")
+    public AndroidElement forgotPasswordBtn;
+
+    @Value(value = "helpHintsUsernameField")
+    @AndroidFindBy(id = "base_edit_text_help")
+    public AndroidElement helpHintsUsernameField;
 
 }
