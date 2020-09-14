@@ -10,10 +10,6 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class Verify extends CommonOps {
 
-    public Verify() {
-        super();
-    }
-
     public void textInElement(AndroidElement elem, String value, String className, String name) {
         try {
             driverWait.until(ExpectedConditions.visibilityOf(elem));

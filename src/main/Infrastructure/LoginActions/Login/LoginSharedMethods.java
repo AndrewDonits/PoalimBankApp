@@ -13,9 +13,6 @@ import static io.restassured.RestAssured.given;
 
 public class LoginSharedMethods extends CommonOps {
 
-    public LoginSharedMethods() {
-        super();
-    }
 
     public String FetchCookieFromRestLogin(String Username, String Password) {
         List<Header> requestHeaders = RestLoginBankZeroWithHeaders(Username, Password);

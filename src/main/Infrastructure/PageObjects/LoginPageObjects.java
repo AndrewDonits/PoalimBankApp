@@ -4,11 +4,7 @@ import Utilities.ManagePages;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.How;
-import org.springframework.context.annotation.Lazy;
 
-@Lazy
 public class LoginPageObjects extends ManagePages {
 
     public LoginPageObjects(WebDriver driver) {

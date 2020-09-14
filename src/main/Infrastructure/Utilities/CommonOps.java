@@ -3,6 +3,7 @@ package Utilities;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.apache.commons.io.FileUtils;
@@ -29,27 +30,34 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
 
-public class CommonOps extends Base {
+public class CommonOps extends Base{
 
     /***************************** Main Methods *******************************/
 
+
+
     @BeforeClass
-    public void beforeClass() {
+    public void beforeClass() throws MalformedURLException {
         instanceReports();
         loadPropertiesFile();
+        initDriver(
+                props.getProperty("BankDeviceUUID"),
+                props.getProperty("BankDeviceAppPackage"),
+                props.getProperty("BankDeviceAppActivity")
+        );
+//        dc.setCapability(MobileCapabilityType.UDID, props.getProperty("BankDeviceUUID"));
+//        dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, props.getProperty("BankDeviceAppPackage"));
+//        dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, props.getProperty("BankDeviceAppActivity"));
+//        driver = getDriver();
+        driverWait = new WebDriverWait(driver, 15);
+        action = new Actions(driver);
+        bankUi = new BankUi(driver);
     }
 
     @BeforeMethod
-    public void beforeMethod(Method method) throws MalformedURLException {
+    public void beforeMethod(Method method) throws IOException {
         initReportsTest(method.getName().split("_")[1], method.getName().split("_")[0]);
-        dc.setCapability(MobileCapabilityType.UDID, props.getProperty("BankDeviceUUID"));
-        dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, props.getProperty("BankDeviceAppPackage"));
-        dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, props.getProperty("BankDeviceAppActivity"));
-        driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), dc);
 //        driver.resetApp();
-        driverWait = new WebDriverWait(driver, 15);
-        bankUi = new BankUi(driver);
-        action = new Actions(driver);
     }
 
     @AfterMethod
@@ -69,9 +77,14 @@ public class CommonOps extends Base {
         dc.setCapability(MobileCapabilityType.UDID, UDID);
         dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, AppPackage);
         dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, AppActivity);
+        driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), dc);
 //        driver.resetApp();
         dc.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, true);
 //        driver.installApp(prop.getProperty("EmulatorAppPath"));
+    }
+
+    public AndroidDriver<AndroidElement> getDriver() {
+        return driver;
     }
 
     /******************************** Reports ***********************************/
@@ -133,7 +146,7 @@ public class CommonOps extends Base {
         return(now.getHour());
     }
 
-    public static String getData(String nodeName) throws ParserConfigurationException, IOException, SAXException {
+    public static String getData(String nodeName) throws ParserConfigurationException, IOException, SAXException, SAXException {
         File fXmlFile = new File("E:/InteliJ/BankApp/src/main/configuration/Static_Texts.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

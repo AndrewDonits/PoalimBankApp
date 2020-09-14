@@ -51,13 +51,14 @@ public class SetupTouchIDIndicationPageObjects extends ManagePages {
     @AndroidFindBy(id = "upperGreyHeaderTitle")
     public AndroidElement upperGreyHeaderTitle;
 
-    @Value(value = "usernameField")
-    @AndroidFindBy(id = "base_edit_text")
-    public AndroidElement usernameField;
-
-    @Value(value = "passwordField")
-    @AndroidFindBy(id = "base_edit_text")
+    @AndroidFindBy(id = "//*[@id='base_edit_text' and @text='סיסמה']")
     public AndroidElement passwordField;
+
+
+//    @AndroidFindBy(css = "li.ui-menu-item:nth-of-type(2) > a[id^='ui-id-']")
+
+    @AndroidFindBy(xpath = "//*[@id='base_edit_text' and @text='קוד משתמש']")
+    public AndroidElement usernameField;
 
     @AndroidFindBy(id = "finger_login_view_forgot_user_name")
     public AndroidElement forgotUsernameBtn;

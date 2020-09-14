@@ -1,18 +1,17 @@
 package SharedMethods;
 
 import Utilities.CommonOps;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.restassured.response.Response;
 
 import static Utilities.BankUi.loginSharedMethods;
 import static io.restassured.RestAssured.given;
 
-public class HomePageCommonMethods extends CommonOps {
+public class HomePageSharedMethods extends CommonOps {
 
     protected Response gender;
 
-    public HomePageCommonMethods() {
-        super();
-    }
 
     public String getHomePageTitleByTime(int currentTime) {
         if (currentTime < 11 && currentTime >= 5)
