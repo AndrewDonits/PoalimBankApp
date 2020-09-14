@@ -10,10 +10,6 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class Verify extends CommonOps {
 
-    public Verify() {
-        super();
-    }
-
     public void textInElement(AndroidElement elem, String value, String className, String name) {
         try {
             driverWait.until(ExpectedConditions.visibilityOf(elem));
@@ -22,7 +18,7 @@ public class Verify extends CommonOps {
                     LogStatus.PASS,
                     "The following text: "
                             + value
-                            + ", found successfully in the following element: "
+                            + ", was found successfully in the following element: "
                             + Variables.getName(className, name)
             );
         } catch (Exception e) {

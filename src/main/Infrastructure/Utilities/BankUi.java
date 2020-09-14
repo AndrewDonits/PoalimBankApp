@@ -3,46 +3,46 @@ package Utilities;
 import Extensions.Click;
 import Extensions.Update;
 import Extensions.Verify;
-import LoginActions.Login.LoginTests;
-import PageObjects.*;
-import SharedMethods.HomePageCommonMethods;
-import SharedMethods.IntroPagesSharedMethods;
 import LoginActions.Login.LoginSharedMethods;
+import LoginActions.Login.LoginTests;
+import LoginActions.PreLoginIntroductionPages.IntroPagesTests;
 import LoginActions.TouchIDSignUpProcess.TouchIDSignUpProcessSharedMethods;
 import LoginActions.TouchIDSignUpProcess.TouchIDSignUpProcessTests;
+import PageObjects.*;
+import SharedMethods.HomePageSharedMethods;
+import SharedMethods.IntroPagesSharedMethods;
 import org.openqa.selenium.WebDriver;
 
-public class BankUi {
+public class BankUi extends Base {
 
-    public static LoginPageObjects login;
-    public static PostLoginPageObjects postLogin;
-    public static HomePageObjects homePage;
-    public static IntroPagesPageObjects introPages;
-    public static HomePageCommonMethods homePageCommonMethods;
-    public static Update update;
-    public static Click click;
-    public static Verify verify;
+    public static LoginPageObjects loginObjects;
+    public static PostLoginPageObjects postLoginObjects;
+    public static IntroPagesPageObjects introPagesObjects;
+    public static HomePageObjects homePageObjects;
     public static LoginSharedMethods loginSharedMethods;
+    public static HomePageSharedMethods homePageSharedMethods;
     public static LoginTests loginTests;
-    public static SetupTouchIDIndicationPageObjects setupTouchIDIndication;
     public static IntroPagesSharedMethods introPagesSharedMethods;
     public static TouchIDSignUpProcessTests touchIDSignUpProcessTests;
     public static TouchIDSignUpProcessSharedMethods touchIDSignUpProcessSharedMethods;
+    public static SetupTouchIDIndicationPageObjects setupTouchIDIndicationPageObjects;
+    public static IntroPagesTests introPagesTests;
 
     BankUi(WebDriver driver) {
-        this.login = new LoginPageObjects(driver);
-        this.postLogin = new PostLoginPageObjects(driver);
-        this.homePage = new HomePageObjects(driver);
-        this.update = new Update();
-        this.click = new Click();
-        this.verify = new Verify();
-        this.homePageCommonMethods = new HomePageCommonMethods();
-        this.loginSharedMethods = new LoginSharedMethods();
-        this.setupTouchIDIndication = new SetupTouchIDIndicationPageObjects(driver);
-        this.introPagesSharedMethods = new IntroPagesSharedMethods();
-        this.introPages = new IntroPagesPageObjects(driver);
-        this.loginTests = new LoginTests();
-        this.touchIDSignUpProcessTests = new TouchIDSignUpProcessTests();
-        this.touchIDSignUpProcessSharedMethods = new TouchIDSignUpProcessSharedMethods();
+        loginObjects = new LoginPageObjects(driver);
+        postLoginObjects = new PostLoginPageObjects(driver);
+        loginSharedMethods = new LoginSharedMethods();
+        introPagesSharedMethods = new IntroPagesSharedMethods();
+        introPagesObjects = new IntroPagesPageObjects(driver);
+        loginTests = new LoginTests();
+        touchIDSignUpProcessTests = new TouchIDSignUpProcessTests();
+        touchIDSignUpProcessSharedMethods = new TouchIDSignUpProcessSharedMethods();
+        introPagesTests = new IntroPagesTests();
+        homePageSharedMethods = new HomePageSharedMethods();
+        update = new Update();
+        click = new Click();
+        verify = new Verify();
+        homePageObjects = new HomePageObjects(driver);
+        setupTouchIDIndicationPageObjects = new SetupTouchIDIndicationPageObjects(driver);
     }
 }

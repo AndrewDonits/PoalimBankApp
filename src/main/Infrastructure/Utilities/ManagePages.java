@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class ManagePages extends Base {
+    public ManagePages(){
+
+    }
 
     public ManagePages(WebDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

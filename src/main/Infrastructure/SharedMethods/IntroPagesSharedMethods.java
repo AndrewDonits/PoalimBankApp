@@ -4,16 +4,12 @@ import Utilities.CommonOps;
 
 import java.io.IOException;
 
-import static Utilities.BankUi.*;
+import static Utilities.BankUi.introPagesObjects;
 
 public class IntroPagesSharedMethods extends CommonOps {
 
-    public IntroPagesSharedMethods() {
-        super();
-    }
-
     public void nextTimeButton(boolean fail) throws IOException {
-        click.on(introPages.nextTimeBtn, "introPages", "nextTimeBtn", fail);
+        click.onElement(introPagesObjects.nextTimeBtn, "introPages", "nextTimeBtn", fail);
     }
 
 }

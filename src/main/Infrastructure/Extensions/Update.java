@@ -8,10 +8,6 @@ import org.testng.Assert;
 
 public class Update extends CommonOps {
 
-    public Update() {
-        super();
-    }
-
     public void sendKeys(String value, AndroidElement elem, String className, String name) {
         try {
             driverWait.until(ExpectedConditions.elementToBeClickable(elem)).sendKeys(value);

@@ -1,42 +1,43 @@
 package LoginActions.TouchIDSignUpProcess;
 
 import Utilities.CommonOps;
-import org.testng.annotations.Test;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
-import static Utilities.BankUi.*;
-import static Utilities.BankUi.setupTouchIDIndication;
+import static Utilities.BankUi.loginObjects;
+import static Utilities.BankUi.setupTouchIDIndicationPageObjects;
 
 public class TouchIDSignUpProcessTests extends CommonOps {
 
-    public TouchIDSignUpProcessTests() { super();}
+    public void enterTouchIDSignUpProcess(boolean preLogin) throws IOException {
+        if (preLogin)
+            click.onElement(loginObjects.loginWithFingerPrintBtn, "login", "loginWithFingerPrintBtn", true);
 
-    @Test
+        //TODO Need to add sign up with finger print button after login here
+    }
+
     public void verifyIntroPageHeader() throws IOException, ParserConfigurationException, SAXException {
-        click.on(login.loginWithFingerPrintBtn, "login", "loginWithFingerPrintBtn", true);
         verify.textInElement(
-                setupTouchIDIndication.setupTouchIDIntroHeader,
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroHeader,
                 getData("TouchIDIntroHeader"),
                 "setupTouchIDIndication",
                 "setupTouchIDIntroHeader"
         );
     }
 
-    @Test
     public void verifyIntroPageSubHeader() throws IOException, ParserConfigurationException, SAXException {
-        String[] subHeaderSplit = setupTouchIDIndication.setupTouchIDIntroSubHeader.getText().split(",");
+        String[] subHeaderSplit = setupTouchIDIndicationPageObjects.setupTouchIDIntroSubHeader.getText().split(",");
         verify.text(
-                setupTouchIDIndication.setupTouchIDIntroSubHeader,
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroSubHeader,
                 subHeaderSplit[0].trim() + ",",
                 getData("TouchIDIntroSubHeaderFirstRow"),
                 "setupTouchIDIndication",
                 "setupTouchIDIntroSubHeader"
         );
         verify.text(
-                setupTouchIDIndication.setupTouchIDIntroSubHeader,
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroSubHeader,
                 subHeaderSplit[1].trim(),
                 getData("TouchIDIntroSubHeaderSecondRow"),
                 "setupTouchIDIndication",
@@ -44,18 +45,17 @@ public class TouchIDSignUpProcessTests extends CommonOps {
         );
     }
 
-    @Test
     public void verifyIntroPageDescription() throws IOException, ParserConfigurationException, SAXException {
-        String[] descriptionSplit = setupTouchIDIndication.setupTouchIDIntroDescription.getText().split(",");
+        String[] descriptionSplit = setupTouchIDIndicationPageObjects.setupTouchIDIntroDescription.getText().split(",");
         verify.text(
-                setupTouchIDIndication.setupTouchIDIntroDescription,
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroDescription,
                 descriptionSplit[0].trim() + ",",
                 getData("TouchIDIntroDescriptionFirstRow"),
                 "setupTouchIDIndication",
                 "setupTouchIDIntroDescription"
         );
         verify.text(
-                setupTouchIDIndication.setupTouchIDIntroDescription,
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroDescription,
                 descriptionSplit[1].trim(),
                 getData("TouchIDIntroDescriptionSecondRow"),
                 "setupTouchIDIndication",
@@ -63,44 +63,50 @@ public class TouchIDSignUpProcessTests extends CommonOps {
         );
     }
 
-    @Test
     public void verifyIntroPageAttentionSectionTitle() throws IOException, SAXException, ParserConfigurationException {
         verify.textInElement(
-                setupTouchIDIndication.setupTouchIDIntroAttentionText,
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroAttentionText,
                 getData("TouchIDIntroAttention"),
                 "setupTouchIDIndication",
                 "setupTouchIDIntroAttentionText"
         );
     }
 
-    @Test
     public void verifyIntroPageAttentionSectionBullets() throws IOException, SAXException, ParserConfigurationException {
         verify.textInElement(
-                setupTouchIDIndication.setupTouchIDIntroAttentionFirstBullet,
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroAttentionFirstBullet,
                 getData("TouchIDIntroFirstBullet"),
                 "setupTouchIDIndication",
                 "setupTouchIDIntroAttentionFirstBullet"
         );
         verify.textInElement(
-                setupTouchIDIndication.setupTouchIDIntroAttentionSecondBullet,
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroAttentionSecondBullet,
                 getData("TouchIDIntroSecondBullet"),
                 "setupTouchIDIndication",
                 "setupTouchIDIntroAttentionSecondBullet"
         );
         verify.textInElement(
-                setupTouchIDIndication.setupTouchIDIntroAttentionThirdBullet,
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroAttentionThirdBullet,
                 getData("TouchIDIntroThirdBullet"),
                 "setupTouchIDIndication",
                 "setupTouchIDIntroAttentionThirdBullet"
         );
     }
 
-    @Test
-    public void clickOnProceedBtn() throws IOException, SAXException, ParserConfigurationException {
-        click.on(
-                setupTouchIDIndication.setupTouchIDIntroProceedBtn,
+    public void clickOnProceedBtn() throws IOException {
+        click.onElement(
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroProceedBtn,
                 "setupTouchIDIndication",
                 "setupTouchIDIntroProceedBtn",
+                true
+        );
+    }
+
+    public void clickOnCloseBtn() throws IOException {
+        click.onElement(
+                setupTouchIDIndicationPageObjects.setupTouchIDIntroCloseBtn,
+                "setupTouchIDIndication",
+                "setupTouchIDIntroCloseBtn",
                 true
         );
     }
